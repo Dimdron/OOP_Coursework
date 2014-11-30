@@ -1,0 +1,12 @@
+#ifndef FIGURESLIB_GLOBAL_H
+#define FIGURESLIB_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(FIGURESLIB_LIBRARY)
+#  define FIGURESLIBSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define FIGURESLIBSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // FIGURESLIB_GLOBAL_H
