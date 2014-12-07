@@ -1,2 +1,6 @@
-*.obj
-*.exe
+*.o
+*.a
+*.autosave
+*.user
+build/
+build*/

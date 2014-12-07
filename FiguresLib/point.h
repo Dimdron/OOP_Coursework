@@ -8,12 +8,11 @@ private:
 public:
     Point() {}
     Point(int, int);
-    Point(Point);
-
+    Point(const Point&);
     int getX() const;
-    void setX(int);
+    void setX(int value);
     int getY() const;
-    void setY(int);
+    void setY(int value);
 };
 
 #endif // POINT_H

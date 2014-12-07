@@ -5,27 +5,26 @@ Point::Point(int x, int y)
 {
 }
 
-Point::Point(Point point)
+Point::Point(const Point &point)
     :x(point.x), y(point.y)
 {
 }
 
-int Point::getX()
-{
-    return x;
-}
-
-void Point::setX(int x)
-{
-    this->x = x;
-}
-
-int Point::getY()
+int Point::getY() const
 {
     return y;
 }
 
-void Point::setY(int y)
+void Point::setY(int value)
 {
-    this->y = y;
+    y = value;
+}
+int Point::getX() const
+{
+    return x;
+}
+
+void Point::setX(int value)
+{
+    x = value;
 }

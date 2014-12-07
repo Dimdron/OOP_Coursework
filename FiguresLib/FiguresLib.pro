@@ -8,6 +8,8 @@ QT       -= gui
 
 TARGET = FiguresLib
 TEMPLATE = lib
+CONFIG += staticlib
+CONFIG += c++11
 
 DEFINES += FIGURESLIB_LIBRARY
 
@@ -15,14 +17,20 @@ SOURCES += \
     figure.cpp \
     point.cpp \
     color.cpp \
-    square.cpp
+    square.cpp \
+    polygonshape.cpp \
+    polygon.cpp
 
 HEADERS +=\
         figureslib_global.h \
-    figure.h \
     point.h \
     color.h \
-    square.h
+    square.h \
+    figure.h \
+    polygonshape.h \
+    polygon.h
+
+DESTDIR = ../build
 
 unix {
     target.path = /usr/lib

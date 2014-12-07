@@ -1,10 +1,13 @@
 #ifndef SQUARE_H
 #define SQUARE_H
+#include "polygonshape.h"
 
-class Square : public Figure
+class Square : public PolygonShape
 {
+protected:
+    void initPolygon();
 public:
-    Square();
+    Square(int width);
 };
 
 #endif // SQUARE_H

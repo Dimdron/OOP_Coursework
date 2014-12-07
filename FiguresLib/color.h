@@ -5,8 +5,9 @@ class Color
 {
     char red, green, blue;
 public:
+    Color();
     Color(char, char, char);
-    void setColor(Color);
+    void setColor(Color&);
     void setColor(char, char, char);
 
     char getRed() const;

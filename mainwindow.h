@@ -2,10 +2,13 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "renderer.h"
+
 
 namespace Ui {
 class MainWindow;
 }
+
 
 class MainWindow : public QMainWindow
 {
@@ -17,6 +20,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    Renderer *renderer;
 };
 
 #endif // MAINWINDOW_H

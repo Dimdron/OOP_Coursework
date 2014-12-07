@@ -1,12 +1,16 @@
 #include "color.h"
 
 
+Color::Color()
+{
+}
+
 Color::Color(char r, char g, char b)
     :red(r), green(g), blue(b)
 {
 }
 
-void Color::setColor(Color value)
+void Color::setColor(Color &value)
 {
     red = value.red;
     green = value.green;
@@ -48,7 +52,4 @@ char Color::getBlue() const
 void Color::setBlue(char value)
 {
     blue = value;
-}
-Color::Color()
-{
 }
