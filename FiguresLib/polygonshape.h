@@ -5,15 +5,15 @@
 
 class PolygonShape : public Figure
 {
-
 protected:
     Polygon polygon;
-    int width;
-    int height;
     Figures::FigurType type() const;
 public:
-    PolygonShape(int, int);
+    PolygonShape(int nodes_count);
     Polygon getPolygon();
+
+    void move(float dx, float dy);
+    bool contains(float x, float y) const;
 };
 
 #endif // POLYGONSHAPE_H

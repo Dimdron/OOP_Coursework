@@ -2,6 +2,7 @@
 #define FIGURE_H
 #include "color.h"
 
+
 namespace Figures {
 
     enum FigurType {
@@ -12,27 +13,29 @@ namespace Figures {
 class Figure
 {
 private:
-    double x, y;
+    int id;
     Color color;
     bool visible;
+    bool selected;
 protected:
     Figure();
-    Figure(double x, double y);
-    Figure(double x, double y, const Color&);
+    Figure(const Color&);
 public:
     ~Figure();
-    Color getColor();
+    Color getColor() const;
     void setColor(Color);
 
     bool isVisible() const;
     void setVisible(bool value);
 
-    double getX() const;
-    void setX(double value);
-    double getY() const;
-    void setY(double value);
-
+    virtual bool contains(float x, float y) const = 0;
+    virtual void move(float dx, float dy) = 0;
     virtual Figures::FigurType type() const = 0;
+
+    int getId() const;
+    void setId(int value);
+    bool getSelected() const;
+    void setSelected(bool value);
 };
 
 

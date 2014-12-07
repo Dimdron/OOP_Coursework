@@ -1,6 +1,6 @@
 #include "point.h"
 
-Point::Point(int x, int y)
+Point::Point(float x, float y)
     :x(x), y(y)
 {
 }
@@ -10,21 +10,21 @@ Point::Point(const Point &point)
 {
 }
 
-int Point::getY() const
+float Point::getY() const
 {
     return y;
 }
 
-void Point::setY(int value)
+void Point::setY(float value)
 {
     y = value;
 }
-int Point::getX() const
+float Point::getX() const
 {
     return x;
 }
 
-void Point::setX(int value)
+void Point::setX(float value)
 {
     x = value;
 }

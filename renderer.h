@@ -22,6 +22,8 @@ private:
     void drawPolygon(PolygonShape*, QPainter&);
 protected:
      void paintEvent(QPaintEvent *event);
+     void mouseMoveEvent(QMouseEvent *);
+     void mousePressEvent(QMouseEvent *);
 public:
     explicit Renderer(QWidget *parent = 0);
 
@@ -29,7 +31,7 @@ public:
 
     QColor getBackground() const;
     void setBackground(const QColor &value);
-//    QSize sizeHint();
+
     void resizeSceneImage(QImage *image, const QSize &newSize);
     void resizeEvent(QResizeEvent *event);
 

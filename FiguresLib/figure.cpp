@@ -1,16 +1,32 @@
 #include "figure.h"
 
+
+int Figure::getId() const
+{
+    return id;
+}
+
+void Figure::setId(int value)
+{
+    id = value;
+}
+
+bool Figure::getSelected() const
+{
+    return selected;
+}
+
+void Figure::setSelected(bool value)
+{
+    selected = value;
+}
 Figure::Figure()
 {
 }
 
-Figure::Figure(double x, double y)
-    :x(x), y(y)
-{
-}
 
-Figure::Figure(double x, double y, const Color &color)
-    :x(x), y(y), color(color)
+Figure::Figure(const Color &color)
+    :color(color)
 {
 }
 
@@ -28,26 +44,6 @@ void Figure::setVisible(bool value)
     visible = value;
 }
 
-double Figure::getX() const
-{
-    return x;
-}
-
-void Figure::setX(double value)
-{
-    x = value;
-}
-
-double Figure::getY() const
-{
-    return y;
-}
-
-void Figure::setY(double value)
-{
-    y = value;
-}
-
-Color Figure::getColor() {
+Color Figure::getColor() const {
     return color;
 }

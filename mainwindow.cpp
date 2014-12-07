@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     renderer = new Renderer(this);
 
-    renderer->addFigure(new Square(100));
+    renderer->addFigure(new Square(100, 20, 80));
 
     ui->verticalspace->addWidget(renderer);
 }

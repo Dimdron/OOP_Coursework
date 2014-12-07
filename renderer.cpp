@@ -1,6 +1,7 @@
 #include "renderer.h"
 #include <QPainter>
 
+#include <iostream>
 
 QColor Renderer::getBackground() const
 {
@@ -52,8 +53,9 @@ void Renderer::drawScene()
     {
         Figure *figure = *iter;
         Color color = figure->getColor();
-        painter.setPen(QColor(color.getRed(), color.getGreen(), color.getBlue()));
-
+        QColor qcolor(color.getRed(), color.getGreen(), color.getBlue());
+        painter.setPen(qcolor);
+        painter.setBrush(qcolor);
         if (figure->type() == Figures::PoligonType)
             drawPolygon(static_cast<PolygonShape*>(figure), painter);
     }
@@ -65,12 +67,11 @@ void Renderer::drawPolygon(PolygonShape *shape, QPainter &painter)
     Polygon polygon = shape->getPolygon();
     Polygon::iterator pointer;
 
+    QPolygonF qpolygon;
     for (pointer = polygon.begin(); pointer != polygon.end(); pointer++)
-    {
-        Point point = *pointer;
+        qpolygon.append(QPointF(pointer->getX(), pointer->getY()));
 
-        painter.drawPoint(point.getX(), point.getY());
-    }
+    painter.drawPolygon(qpolygon);
 }
 
 void Renderer::resizeSceneImage(QImage *image, const QSize &newSize)
@@ -94,6 +95,16 @@ void Renderer::resizeEvent(QResizeEvent *event)
         update();
     }
     QWidget::resizeEvent(event);
+}
+
+void Renderer::mousePressEvent(QMouseEvent *event)
+{
+    std::cout<<"mousePressEvent X:"<<event->x()<<" Y:"<<event->y()<<std::endl;
+}
+
+void Renderer::mouseMoveEvent(QMouseEvent *event)
+{
+    std::cout<<"mouseMoveEvent X:"<<event->x()<<" Y:"<<event->y()<<std::endl;
 }
 
 

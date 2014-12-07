@@ -19,7 +19,8 @@ SOURCES += \
     color.cpp \
     square.cpp \
     polygonshape.cpp \
-    polygon.cpp
+    polygon.cpp \
+    rectangle.cpp
 
 HEADERS +=\
         figureslib_global.h \
@@ -28,7 +29,8 @@ HEADERS +=\
     square.h \
     figure.h \
     polygonshape.h \
-    polygon.h
+    polygon.h \
+    rectangle.h
 
 DESTDIR = ../build
 

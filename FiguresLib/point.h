@@ -4,15 +4,15 @@
 class Point
 {
 private:
-    int x, y;
+    float x, y;
 public:
     Point() {}
-    Point(int, int);
+    Point(float, float);
     Point(const Point&);
-    int getX() const;
-    void setX(int value);
-    int getY() const;
-    void setY(int value);
+    float getX() const;
+    void setX(float value);
+    float getY() const;
+    void setY(float value);
 };
 
 #endif // POINT_H
