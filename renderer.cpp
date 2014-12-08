@@ -100,6 +100,17 @@ void Renderer::resizeEvent(QResizeEvent *event)
 void Renderer::mousePressEvent(QMouseEvent *event)
 {
     std::cout<<"mousePressEvent X:"<<event->x()<<" Y:"<<event->y()<<std::endl;
+    FiguresContainer::iterator iter;
+    for (iter = figures.begin(); iter != figures.end(); iter++)
+    {
+        Figure *figure = *iter;
+        if (figure->contains(event->x(), event->y()))
+            std::cout<<"contains"<<std::endl;
+        else
+            std::cout<<"not contain"<<std::endl;
+
+    }
+
 }
 
 void Renderer::mouseMoveEvent(QMouseEvent *event)

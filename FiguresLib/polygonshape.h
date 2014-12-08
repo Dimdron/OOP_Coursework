@@ -5,6 +5,9 @@
 
 class PolygonShape : public Figure
 {
+private:
+    int position(float x, float y, const Point &v, const Point &w) const;
+    Point* getEdge(int number) const ;
 protected:
     Polygon polygon;
     Figures::FigurType type() const;
