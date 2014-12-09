@@ -18,7 +18,7 @@ void PolygonShape::move(float dx, float dy)
         Point p = polygon[i];
         p.setX(p.getX() + dx);
         p.setY(p.getY() + dy);
-//        polygon[i] = p;
+        polygon[i] = p;
     }
 
 }

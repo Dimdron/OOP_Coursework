@@ -20,10 +20,10 @@ void Figure::setSelected(bool value)
 {
     selected = value;
 }
+
 Figure::Figure()
 {
 }
-
 
 Figure::Figure(const Color &color)
     :color(color)

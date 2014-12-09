@@ -16,6 +16,8 @@ private:
     QColor background;
     bool repaintScene;
     QImage sceneImage;
+    Figure *selected;
+    QPointF lastPosition;
 
     void clearScene();
     void drawScene();

@@ -19,7 +19,7 @@ Renderer::Renderer(QWidget *parent) :
 {
     figures = FiguresContainer();
 
-    background = Qt::green;
+    background = Qt::white;
     setAutoFillBackground(true);
     setBackgroundRole(QPalette::Base);
 }
@@ -30,10 +30,12 @@ void Renderer::addFigure(Figure *figure) {
 
 void Renderer::paintEvent(QPaintEvent *event)
 {
+    std::cout<<"called paintEvent"<<std::endl;
+
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
 
-    if(false)
+    if(true)
         clearScene();
     drawScene();
 
@@ -94,20 +96,25 @@ void Renderer::resizeEvent(QResizeEvent *event)
         resizeSceneImage(&sceneImage, QSize(newWidth, newHeight));
         update();
     }
+    std::cout<<"called resizeEvent"<<std::endl;
     QWidget::resizeEvent(event);
 }
 
 void Renderer::mousePressEvent(QMouseEvent *event)
 {
-    std::cout<<"mousePressEvent X:"<<event->x()<<" Y:"<<event->y()<<std::endl;
     FiguresContainer::iterator iter;
     for (iter = figures.begin(); iter != figures.end(); iter++)
     {
         Figure *figure = *iter;
         if (figure->contains(event->x(), event->y()))
-            std::cout<<"contains"<<std::endl;
+        {
+            selected = figure;
+            lastPosition = event->localPos();
+        }
         else
-            std::cout<<"not contain"<<std::endl;
+        {
+            selected = NULL;
+        }
 
     }
 
@@ -115,7 +122,13 @@ void Renderer::mousePressEvent(QMouseEvent *event)
 
 void Renderer::mouseMoveEvent(QMouseEvent *event)
 {
-    std::cout<<"mouseMoveEvent X:"<<event->x()<<" Y:"<<event->y()<<std::endl;
+    if (selected == NULL)
+        return;
+    std::cout<<"lastMouseEvent "<< lastPosition.x() << " " << lastPosition.y() <<std::endl;
+    std::cout<<"event "<< event->x() << " " << event->y() <<std::endl;
+    selected->move(event->x() - lastPosition.x(), event->y() - lastPosition.y());
+    lastPosition = event->localPos();
+    update();
 }
 
 
